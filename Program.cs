@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace input
 {
-    static class Program
+    public class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,18 @@ namespace input
         {   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 form = new Form1();
+            form.FormClosing += new FormClosingEventHandler(form.Form1_FormClosing);
+            Application.Run(form);
         }
+
+        static void f_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // insert code to run here after form has closed
+        }
+
     }
+
+
+
 }

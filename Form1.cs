@@ -15,12 +15,38 @@ namespace input
 {
     public partial class Form1 : Form
     {
+        //this.FormClosing += new FormClosingEventHandler(myForm_FormClosing);
+        //form.FormClosed += new Form.FormClosedEventHandler( myForm_FormClosing() );
 
-        private Process subProcess;
+        public Process subProcess;
 
         private string ARGUMENTS;
 
-        private double st1, st2, st3, azi, ell, dop, pow;
+        private double st1, st2, st3, azi, ell, dop, pow, ms;
+
+
+        public void Form1_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            if (sbProcess != null)
+            {
+                try
+                {
+                    subProcess.Close();
+                    return;
+                }
+                catch (NullReferenceException)
+                {
+                    // Everything is fine.
+                }
+
+            }
+
+
+            //System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            //messageBoxCS.AppendFormat("{0} = {1}", "CloseReason", e.CloseReason);
+            //messageBoxCS.AppendLine();
+            //MessageBox.Show(messageBoxCS.ToString(), "FormClosed Event");
+        }
 
         public Form1()
         {
@@ -29,16 +55,22 @@ namespace input
 
         private void parseArgs()
         {
-            string DEF_WAVELENGTH, BASIC_MEAS_SPEED, PERIODS_PER_BUFFER, BUFFERS_PER_FFT, FFT_PER_RESULT, NUM_MEASUREMENTS;
+            string IP, PORT, SLOT, COMM, BOOT, WRITE_TO_FILE, FILENAME,DEF_WAVELENGTH, BASIC_MEAS_SPEED, PERIODS_PER_BUFFER, BUFFERS_PER_FFT, FFT_PER_RESULT;
 
-            DEF_WAVELENGTH = numArg1.Value.ToString();
-            BASIC_MEAS_SPEED = numArg2.Value.ToString().Replace(',','.');
-            PERIODS_PER_BUFFER = numArg3.Value.ToString();
-            BUFFERS_PER_FFT = numArg4.Value.ToString();
-            FFT_PER_RESULT = numArg5.Value.ToString();
-            NUM_MEASUREMENTS = numArg6.Value.ToString();
+            IP = IPBox.Text;
+            PORT = portBox.Value.ToString();
+            SLOT = slotBox.Value.ToString();
+            COMM = commBox.Value.ToString();
+            BOOT = bootBox.Value.ToString();
+            WRITE_TO_FILE = writeToFileBox.Value.ToString();
+            FILENAME = fileNameBox.Text;
+            DEF_WAVELENGTH = wavelengthBox.Value.ToString();
+            BASIC_MEAS_SPEED = speedBox.Value.ToString();
+            PERIODS_PER_BUFFER = periodsBox.Value.ToString();
+            BUFFERS_PER_FFT = buffersBox.Value.ToString();
+            FFT_PER_RESULT = fftBox.Value.ToString();
 
-            ARGUMENTS = DEF_WAVELENGTH + " " + BASIC_MEAS_SPEED + " " + PERIODS_PER_BUFFER + " " + BUFFERS_PER_FFT + " " + FFT_PER_RESULT + " " + NUM_MEASUREMENTS;
+            ARGUMENTS = IP + " " + PORT + " " + SLOT + " " + DEF_WAVELENGTH + " " + COMM + " " + BOOT + " " + WRITE_TO_FILE + " " + FILENAME + " " + BASIC_MEAS_SPEED + " " + PERIODS_PER_BUFFER + " " + BUFFERS_PER_FFT + " " + FFT_PER_RESULT;
 
             textBoxArgs.Text = ARGUMENTS;
         }
@@ -97,9 +129,9 @@ namespace input
                 return;
 
             string[] mesurments = s.Split('\t');
-            if (mesurments.Length != 7)
+            if (mesurments.Length != 8)
             {
-                textBoxOutput.AppendText("Error: Expected string separated by tab containing 7 values but got \""  +s + "\"\n");
+                textBoxOutput.AppendText("Error: Expected string separated by tab containing 7 values but got "  + mesurments.Length + "\n");
                 return;
             }
 
@@ -110,6 +142,7 @@ namespace input
             ell = Convert.ToDouble(mesurments[4]); // Ellipt
             dop = Convert.ToDouble(mesurments[5]); // DOP
             pow = Convert.ToDouble(mesurments[6]); // Power
+            ms  = Convert.ToDouble(mesurments[7]); // Ms
 
             // **************************************************
             //  INSERT CODE HERE TO DO SOMETHING WITH THE VALUES
@@ -205,6 +238,36 @@ namespace input
         private void numArg6_ValueChanged(object sender, EventArgs e)
         {
             parseArgs();
+        }
+
+        private void textBoxFile_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void portBox_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
 
