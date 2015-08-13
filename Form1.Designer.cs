@@ -73,6 +73,12 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textEllMax = new System.Windows.Forms.TextBox();
+            this.textAziMax = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textEllMin = new System.Windows.Forms.TextBox();
+            this.textAziMin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.writeToFileBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.periodsBox)).BeginInit();
@@ -506,7 +512,6 @@
             this.textAzi.ReadOnly = true;
             this.textAzi.Size = new System.Drawing.Size(100, 20);
             this.textAzi.TabIndex = 40;
-            this.textAzi.Text = "azi";
             // 
             // textEll
             // 
@@ -515,7 +520,6 @@
             this.textEll.ReadOnly = true;
             this.textEll.Size = new System.Drawing.Size(100, 20);
             this.textEll.TabIndex = 41;
-            this.textEll.Text = "eli";
             // 
             // textEllNorm
             // 
@@ -524,7 +528,6 @@
             this.textEllNorm.ReadOnly = true;
             this.textEllNorm.Size = new System.Drawing.Size(100, 20);
             this.textEllNorm.TabIndex = 43;
-            this.textEllNorm.Text = "elinorm";
             // 
             // textAziNorm
             // 
@@ -533,7 +536,6 @@
             this.textAziNorm.ReadOnly = true;
             this.textAziNorm.Size = new System.Drawing.Size(100, 20);
             this.textAziNorm.TabIndex = 42;
-            this.textAziNorm.Text = "azinorm";
             // 
             // timer1
             // 
@@ -586,11 +588,67 @@
             this.label19.TabIndex = 48;
             this.label19.Text = "MEASUREMENTS";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 434);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(59, 13);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "MAXIMUM";
+            // 
+            // textEllMax
+            // 
+            this.textEllMax.Location = new System.Drawing.Point(251, 427);
+            this.textEllMax.Name = "textEllMax";
+            this.textEllMax.ReadOnly = true;
+            this.textEllMax.Size = new System.Drawing.Size(100, 20);
+            this.textEllMax.TabIndex = 50;
+            // 
+            // textAziMax
+            // 
+            this.textAziMax.Location = new System.Drawing.Point(116, 427);
+            this.textAziMax.Name = "textAziMax";
+            this.textAziMax.ReadOnly = true;
+            this.textAziMax.Size = new System.Drawing.Size(100, 20);
+            this.textAziMax.TabIndex = 49;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(16, 460);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 13);
+            this.label21.TabIndex = 54;
+            this.label21.Text = "MINIMUM";
+            // 
+            // textEllMin
+            // 
+            this.textEllMin.Location = new System.Drawing.Point(251, 453);
+            this.textEllMin.Name = "textEllMin";
+            this.textEllMin.ReadOnly = true;
+            this.textEllMin.Size = new System.Drawing.Size(100, 20);
+            this.textEllMin.TabIndex = 53;
+            // 
+            // textAziMin
+            // 
+            this.textAziMin.Location = new System.Drawing.Point(116, 453);
+            this.textAziMin.Name = "textAziMin";
+            this.textAziMin.ReadOnly = true;
+            this.textAziMin.Size = new System.Drawing.Size(100, 20);
+            this.textAziMin.TabIndex = 52;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1361, 699);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.textEllMin);
+            this.Controls.Add(this.textAziMin);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.textEllMax);
+            this.Controls.Add(this.textAziMax);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -699,6 +757,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textEllMax;
+        private System.Windows.Forms.TextBox textAziMax;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textEllMin;
+        private System.Windows.Forms.TextBox textAziMin;
     }
 }
 
