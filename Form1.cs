@@ -255,7 +255,7 @@ namespace input
         
         private void ProcessExited(object sender, EventArgs e)
         {
-            //if(IsRunning(subProcess))
+            if (IsRunning(subProcess))
             {
                 this.BeginInvoke(new MethodInvoker(() =>
                 {
