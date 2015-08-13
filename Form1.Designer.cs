@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonRunProcess = new System.Windows.Forms.Button();
             this.textBoxFile = new System.Windows.Forms.TextBox();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
@@ -61,6 +62,17 @@
             this.IPBox = new System.Windows.Forms.TextBox();
             this.fileNameBox = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.textBoxCounter = new System.Windows.Forms.TextBox();
+            this.textAzi = new System.Windows.Forms.TextBox();
+            this.textEll = new System.Windows.Forms.TextBox();
+            this.textEllNorm = new System.Windows.Forms.TextBox();
+            this.textAziNorm = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.writeToFileBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.periodsBox)).BeginInit();
@@ -94,7 +106,7 @@
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(12, 402);
+            this.textBoxOutput.Location = new System.Drawing.Point(12, 479);
             this.textBoxOutput.Multiline = true;
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -140,7 +152,7 @@
             // writeToFileBox
             // 
             this.writeToFileBox.AccessibleName = "writeToFileBox";
-            this.writeToFileBox.Location = new System.Drawing.Point(886, 191);
+            this.writeToFileBox.Location = new System.Drawing.Point(376, 148);
             this.writeToFileBox.Maximum = new decimal(new int[] {
             1,
             0,
@@ -159,9 +171,9 @@
             // speedBox
             // 
             this.speedBox.AccessibleName = "speedBox";
-            this.speedBox.Location = new System.Drawing.Point(884, 250);
+            this.speedBox.Location = new System.Drawing.Point(374, 207);
             this.speedBox.Maximum = new decimal(new int[] {
-            200,
+            500,
             0,
             0,
             0});
@@ -178,7 +190,7 @@
             // periodsBox
             // 
             this.periodsBox.AccessibleName = "periodsBox";
-            this.periodsBox.Location = new System.Drawing.Point(885, 281);
+            this.periodsBox.Location = new System.Drawing.Point(375, 238);
             this.periodsBox.Name = "periodsBox";
             this.periodsBox.Size = new System.Drawing.Size(72, 20);
             this.periodsBox.TabIndex = 11;
@@ -192,7 +204,7 @@
             // buffersBox
             // 
             this.buffersBox.AccessibleName = "buffersBox";
-            this.buffersBox.Location = new System.Drawing.Point(883, 310);
+            this.buffersBox.Location = new System.Drawing.Point(373, 267);
             this.buffersBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -211,7 +223,7 @@
             // fftBox
             // 
             this.fftBox.AccessibleName = "fftBox";
-            this.fftBox.Location = new System.Drawing.Point(882, 340);
+            this.fftBox.Location = new System.Drawing.Point(372, 297);
             this.fftBox.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -230,27 +242,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(791, 106);
+            this.label3.Location = new System.Drawing.Point(48, 242);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "WAVELENGTH";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(757, 254);
+            this.label4.Location = new System.Drawing.Point(247, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "BASIC_MEAS_SPEED";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(742, 285);
+            this.label5.Location = new System.Drawing.Point(232, 242);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 13);
             this.label5.TabIndex = 16;
@@ -259,7 +269,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(764, 314);
+            this.label6.Location = new System.Drawing.Point(254, 271);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 13);
             this.label6.TabIndex = 17;
@@ -268,7 +278,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(770, 344);
+            this.label7.Location = new System.Drawing.Point(260, 301);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 13);
             this.label7.TabIndex = 18;
@@ -292,7 +302,7 @@
             0,
             0,
             0});
-            this.bootBox.Location = new System.Drawing.Point(886, 161);
+            this.bootBox.Location = new System.Drawing.Point(143, 297);
             this.bootBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -306,6 +316,7 @@
             0,
             0,
             0});
+            this.bootBox.ValueChanged += new System.EventHandler(this.bootBox_ValueChanged);
             // 
             // commBox
             // 
@@ -315,7 +326,7 @@
             0,
             0,
             0});
-            this.commBox.Location = new System.Drawing.Point(886, 131);
+            this.commBox.Location = new System.Drawing.Point(143, 267);
             this.commBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -329,11 +340,12 @@
             0,
             0,
             0});
+            this.commBox.ValueChanged += new System.EventHandler(this.commBox_ValueChanged);
             // 
             // wavelengthBox
             // 
             this.wavelengthBox.AccessibleName = "wavelengthBox";
-            this.wavelengthBox.Location = new System.Drawing.Point(886, 102);
+            this.wavelengthBox.Location = new System.Drawing.Point(143, 238);
             this.wavelengthBox.Maximum = new decimal(new int[] {
             1600,
             0,
@@ -352,11 +364,12 @@
             0,
             0,
             0});
+            this.wavelengthBox.ValueChanged += new System.EventHandler(this.wavelengthBox_ValueChanged);
             // 
             // slotBox
             // 
             this.slotBox.AccessibleName = "slotBox";
-            this.slotBox.Location = new System.Drawing.Point(886, 71);
+            this.slotBox.Location = new System.Drawing.Point(143, 207);
             this.slotBox.Maximum = new decimal(new int[] {
             3,
             0,
@@ -370,11 +383,12 @@
             0,
             0,
             0});
+            this.slotBox.ValueChanged += new System.EventHandler(this.slotBox_ValueChanged);
             // 
             // portBox
             // 
             this.portBox.AccessibleName = "portBox";
-            this.portBox.Location = new System.Drawing.Point(886, 42);
+            this.portBox.Location = new System.Drawing.Point(143, 178);
             this.portBox.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -398,17 +412,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(799, 16);
+            this.label9.Location = new System.Drawing.Point(56, 152);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 27;
             this.label9.Text = "IP_ADDRESS";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(837, 46);
+            this.label10.Location = new System.Drawing.Point(94, 182);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 28;
@@ -417,7 +430,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(839, 75);
+            this.label11.Location = new System.Drawing.Point(96, 211);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 29;
@@ -426,7 +439,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(782, 135);
+            this.label12.Location = new System.Drawing.Point(39, 271);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 13);
             this.label12.TabIndex = 30;
@@ -435,7 +448,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(785, 165);
+            this.label13.Location = new System.Drawing.Point(42, 301);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 13);
             this.label13.TabIndex = 31;
@@ -444,7 +457,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(787, 195);
+            this.label14.Location = new System.Drawing.Point(277, 152);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(86, 13);
             this.label14.TabIndex = 32;
@@ -453,7 +466,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(813, 225);
+            this.label8.Location = new System.Drawing.Point(303, 182);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 33;
@@ -462,7 +475,7 @@
             // IPBox
             // 
             this.IPBox.AccessibleName = "IPBox";
-            this.IPBox.Location = new System.Drawing.Point(886, 12);
+            this.IPBox.Location = new System.Drawing.Point(143, 148);
             this.IPBox.Name = "IPBox";
             this.IPBox.Size = new System.Drawing.Size(72, 20);
             this.IPBox.TabIndex = 34;
@@ -471,17 +484,123 @@
             // fileNameBox
             // 
             this.fileNameBox.AccessibleName = "fileNameBox";
-            this.fileNameBox.Location = new System.Drawing.Point(885, 221);
+            this.fileNameBox.Location = new System.Drawing.Point(375, 178);
             this.fileNameBox.Name = "fileNameBox";
             this.fileNameBox.Size = new System.Drawing.Size(72, 20);
             this.fileNameBox.TabIndex = 35;
             this.fileNameBox.Text = "output.txt";
+            this.fileNameBox.TextChanged += new System.EventHandler(this.fileNameBox_TextChanged);
+            // 
+            // textBoxCounter
+            // 
+            this.textBoxCounter.Location = new System.Drawing.Point(403, 375);
+            this.textBoxCounter.Name = "textBoxCounter";
+            this.textBoxCounter.ReadOnly = true;
+            this.textBoxCounter.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCounter.TabIndex = 37;
+            // 
+            // textAzi
+            // 
+            this.textAzi.Location = new System.Drawing.Point(115, 375);
+            this.textAzi.Name = "textAzi";
+            this.textAzi.ReadOnly = true;
+            this.textAzi.Size = new System.Drawing.Size(100, 20);
+            this.textAzi.TabIndex = 40;
+            this.textAzi.Text = "azi";
+            // 
+            // textEll
+            // 
+            this.textEll.Location = new System.Drawing.Point(250, 375);
+            this.textEll.Name = "textEll";
+            this.textEll.ReadOnly = true;
+            this.textEll.Size = new System.Drawing.Size(100, 20);
+            this.textEll.TabIndex = 41;
+            this.textEll.Text = "eli";
+            // 
+            // textEllNorm
+            // 
+            this.textEllNorm.Location = new System.Drawing.Point(250, 401);
+            this.textEllNorm.Name = "textEllNorm";
+            this.textEllNorm.ReadOnly = true;
+            this.textEllNorm.Size = new System.Drawing.Size(100, 20);
+            this.textEllNorm.TabIndex = 43;
+            this.textEllNorm.Text = "elinorm";
+            // 
+            // textAziNorm
+            // 
+            this.textAziNorm.Location = new System.Drawing.Point(115, 401);
+            this.textAziNorm.Name = "textAziNorm";
+            this.textAziNorm.ReadOnly = true;
+            this.textAziNorm.Size = new System.Drawing.Size(100, 20);
+            this.textAziNorm.TabIndex = 42;
+            this.textAziNorm.Text = "azinorm";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(135, 350);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.TabIndex = 44;
+            this.label15.Text = "AZIMUTH";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(264, 350);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 13);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "ELLIPTICAL";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(16, 382);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(43, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "ANGLE";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 408);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 13);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "NORMALIZED";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(405, 350);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(98, 13);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "MEASUREMENTS";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 594);
+            this.ClientSize = new System.Drawing.Size(1361, 699);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.textEllNorm);
+            this.Controls.Add(this.textAziNorm);
+            this.Controls.Add(this.textEll);
+            this.Controls.Add(this.textAzi);
+            this.Controls.Add(this.textBoxCounter);
             this.Controls.Add(this.fileNameBox);
             this.Controls.Add(this.IPBox);
             this.Controls.Add(this.label8);
@@ -514,9 +633,11 @@
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.textBoxFile);
             this.Controls.Add(this.buttonRunProcess);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Ljósfæri (c# demo)";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.writeToFileBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.periodsBox)).EndInit();
@@ -567,6 +688,17 @@
         private System.Windows.Forms.TextBox IPBox;
         private System.Windows.Forms.TextBox fileNameBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox textBoxCounter;
+        private System.Windows.Forms.TextBox textAzi;
+        private System.Windows.Forms.TextBox textEll;
+        private System.Windows.Forms.TextBox textEllNorm;
+        private System.Windows.Forms.TextBox textAziNorm;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
     }
 }
 
