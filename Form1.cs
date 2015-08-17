@@ -20,25 +20,36 @@ namespace input
 
         private string ARGUMENTS;
 
-        private double st1, st2, st3, azi, ell, dop, pow, ms;
-        private int aziNorm, ellNorm, aziMax=-90, aziMin=90, ellMax=-45, ellMin=45;
+        private double st1, st2, st3, azi, ell, dop, pow, ms, aziNorm, ellNorm;
+        private int aziMax=-90, aziMin=90, ellMax=-45, ellMin=45;
         private int counter = 0;
-        private int _x, _y, x_min, y_min, x_max, y_max, x_width, y_width;
+        private int _x, _y, x_initPos, y_initPos, x_width, y_width,
+            x_gridDivisions, y_gridDivisions, x_gridPosition, y_gridPosition, x_pos, y_pos;
                       
         public Form1()
         {
             InitializeComponent();
+            /*width of frame*/
             x_width = 500;
             y_width = 500;
 
-            x_min = 800;
-            y_min = 100;
+            /*grid divisions*/
+            x_gridDivisions = (int)x_divBox.Value;
+            y_gridDivisions = (int)y_divBox.Value;
 
-            x_max = x_min + x_width;
-            y_max = y_min + y_width;
+            /*position of (0,0), top left corner*/
+            x_initPos = 800;
+            y_initPos = 100;
 
-            _x = (x_min+x_max)/2;
-            _y = (y_min + y_max) / 2;
+
+            /*initial grid position*/
+            x_gridPosition = 0;
+            y_gridPosition = 0;
+
+            /*current position relative to the whole form, starts in top left*/
+            _x = x_initPos;
+            _y = y_initPos;
+
 
         }
 
@@ -200,11 +211,78 @@ namespace input
             // ***************************************
             //   draw dot based on azi and ell values
             // ***************************************
- 
-            // azi and ell are between -90 and 90
-            //normalize to x_width and y_width (
-            aziNorm = Convert.ToInt32(azi) * x_width / 180 + x_width/2;
-            ellNorm = Convert.ToInt32(ell) * y_width / 90 + y_width/2;
+
+            //update gridDivisions
+            if (x_gridDivisions - 1 < x_gridPosition) 
+                x_gridPosition = x_gridDivisions - 1;
+            if (y_gridDivisions - 1 < y_gridPosition)
+                y_gridPosition = y_gridDivisions - 1;
+            x_gridDivisions = (int)x_divBox.Value;
+            y_gridDivisions = (int)y_divBox.Value;
+
+            //check if jumping between divisions
+            if (Math.Abs(azi / 180 - aziNorm) > 0.5)
+            {
+                if ((azi / 180 - aziNorm) > 0)
+                {
+                    if (x_gridPosition != 0)
+                    {
+                        x_gridPosition += -1;
+                    }
+                    else
+                    {
+                        x_gridPosition = x_gridDivisions - 1;
+                    }
+                }
+
+                if ((azi / 180 - aziNorm) < 0)
+                {
+                    if (x_gridPosition != x_gridDivisions - 1)
+                    {
+                        x_gridPosition += 1;
+                    }
+                    else
+                    {
+                        x_gridPosition = 0;
+                    }
+                }
+            }
+
+            if (Math.Abs(ell / 90 - ellNorm) > 0.5)
+            {
+                if ((ell / 180 - ellNorm) > 0)
+                {
+                    if (y_gridPosition != 0)
+                    {
+                        y_gridPosition += -1;
+                    }
+                    else
+                    {
+                        y_gridPosition = y_gridDivisions - 1;
+                    }
+                }
+
+                if ((ell / 180 - ellNorm) < 0)
+                {
+                    if (y_gridPosition != y_gridDivisions - 1)
+                    {
+                        y_gridPosition += 1;
+                    }
+                    else
+                    {
+                        y_gridPosition = 0;
+                    }
+                }
+            }
+                
+
+            // azi and ell are between -90 and 90, normalize to -1..1
+            aziNorm = azi / 180 ;
+            ellNorm = ell / 90 ;
+
+            /*Calculate position coordinates, x=0..x_width, same for y*/
+            x_pos = Convert.ToInt32((aziNorm * x_width + x_width / 2 ) / x_gridDivisions );
+            y_pos = Convert.ToInt32((ellNorm * y_width + y_width / 2 ) / y_gridDivisions);
 
             //output variables
             textAzi.Text = azi.ToString();
@@ -217,8 +295,8 @@ namespace input
             //drawDot(aziNorm, ellNorm);
 
             //update position
-            _x = x_min + aziNorm;
-            _y = y_min + ellNorm;
+            _x = x_initPos + x_gridPosition * x_width / x_gridDivisions + x_pos;
+            _y = y_initPos + y_gridPosition * y_width / y_gridDivisions + y_pos;
             Invalidate();
 
 

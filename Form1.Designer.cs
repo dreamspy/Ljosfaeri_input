@@ -79,6 +79,12 @@
             this.label21 = new System.Windows.Forms.Label();
             this.textEllMin = new System.Windows.Forms.TextBox();
             this.textAziMin = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.y_divBox = new System.Windows.Forms.NumericUpDown();
+            this.x_divBox = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.writeToFileBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.periodsBox)).BeginInit();
@@ -89,6 +95,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.wavelengthBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slotBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portBox)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.y_divBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.x_divBox)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonRunProcess
@@ -158,7 +167,7 @@
             // writeToFileBox
             // 
             this.writeToFileBox.AccessibleName = "writeToFileBox";
-            this.writeToFileBox.Location = new System.Drawing.Point(376, 148);
+            this.writeToFileBox.Location = new System.Drawing.Point(357, 4);
             this.writeToFileBox.Maximum = new decimal(new int[] {
             1,
             0,
@@ -177,7 +186,7 @@
             // speedBox
             // 
             this.speedBox.AccessibleName = "speedBox";
-            this.speedBox.Location = new System.Drawing.Point(374, 207);
+            this.speedBox.Location = new System.Drawing.Point(355, 63);
             this.speedBox.Maximum = new decimal(new int[] {
             500,
             0,
@@ -196,7 +205,7 @@
             // periodsBox
             // 
             this.periodsBox.AccessibleName = "periodsBox";
-            this.periodsBox.Location = new System.Drawing.Point(375, 238);
+            this.periodsBox.Location = new System.Drawing.Point(356, 94);
             this.periodsBox.Name = "periodsBox";
             this.periodsBox.Size = new System.Drawing.Size(72, 20);
             this.periodsBox.TabIndex = 11;
@@ -210,7 +219,7 @@
             // buffersBox
             // 
             this.buffersBox.AccessibleName = "buffersBox";
-            this.buffersBox.Location = new System.Drawing.Point(373, 267);
+            this.buffersBox.Location = new System.Drawing.Point(354, 123);
             this.buffersBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -229,7 +238,7 @@
             // fftBox
             // 
             this.fftBox.AccessibleName = "fftBox";
-            this.fftBox.Location = new System.Drawing.Point(372, 297);
+            this.fftBox.Location = new System.Drawing.Point(353, 153);
             this.fftBox.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -248,7 +257,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 242);
+            this.label3.Location = new System.Drawing.Point(29, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 14;
@@ -257,7 +266,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(247, 211);
+            this.label4.Location = new System.Drawing.Point(228, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 13);
             this.label4.TabIndex = 15;
@@ -266,7 +275,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 242);
+            this.label5.Location = new System.Drawing.Point(213, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 13);
             this.label5.TabIndex = 16;
@@ -275,7 +284,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(254, 271);
+            this.label6.Location = new System.Drawing.Point(235, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 13);
             this.label6.TabIndex = 17;
@@ -284,7 +293,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(260, 301);
+            this.label7.Location = new System.Drawing.Point(241, 157);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 13);
             this.label7.TabIndex = 18;
@@ -308,7 +317,7 @@
             0,
             0,
             0});
-            this.bootBox.Location = new System.Drawing.Point(143, 297);
+            this.bootBox.Location = new System.Drawing.Point(124, 153);
             this.bootBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -332,7 +341,7 @@
             0,
             0,
             0});
-            this.commBox.Location = new System.Drawing.Point(143, 267);
+            this.commBox.Location = new System.Drawing.Point(124, 123);
             this.commBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -351,7 +360,7 @@
             // wavelengthBox
             // 
             this.wavelengthBox.AccessibleName = "wavelengthBox";
-            this.wavelengthBox.Location = new System.Drawing.Point(143, 238);
+            this.wavelengthBox.Location = new System.Drawing.Point(124, 94);
             this.wavelengthBox.Maximum = new decimal(new int[] {
             1600,
             0,
@@ -375,7 +384,7 @@
             // slotBox
             // 
             this.slotBox.AccessibleName = "slotBox";
-            this.slotBox.Location = new System.Drawing.Point(143, 207);
+            this.slotBox.Location = new System.Drawing.Point(124, 63);
             this.slotBox.Maximum = new decimal(new int[] {
             3,
             0,
@@ -394,7 +403,7 @@
             // portBox
             // 
             this.portBox.AccessibleName = "portBox";
-            this.portBox.Location = new System.Drawing.Point(143, 178);
+            this.portBox.Location = new System.Drawing.Point(124, 34);
             this.portBox.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -418,7 +427,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(56, 152);
+            this.label9.Location = new System.Drawing.Point(37, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 27;
@@ -427,7 +436,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(94, 182);
+            this.label10.Location = new System.Drawing.Point(75, 38);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 28;
@@ -436,7 +445,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(96, 211);
+            this.label11.Location = new System.Drawing.Point(77, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 29;
@@ -445,7 +454,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(39, 271);
+            this.label12.Location = new System.Drawing.Point(20, 127);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 13);
             this.label12.TabIndex = 30;
@@ -454,7 +463,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(42, 301);
+            this.label13.Location = new System.Drawing.Point(23, 157);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 13);
             this.label13.TabIndex = 31;
@@ -463,7 +472,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(277, 152);
+            this.label14.Location = new System.Drawing.Point(258, 8);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(86, 13);
             this.label14.TabIndex = 32;
@@ -472,7 +481,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(303, 182);
+            this.label8.Location = new System.Drawing.Point(284, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 33;
@@ -481,7 +490,7 @@
             // IPBox
             // 
             this.IPBox.AccessibleName = "IPBox";
-            this.IPBox.Location = new System.Drawing.Point(143, 148);
+            this.IPBox.Location = new System.Drawing.Point(124, 4);
             this.IPBox.Name = "IPBox";
             this.IPBox.Size = new System.Drawing.Size(72, 20);
             this.IPBox.TabIndex = 34;
@@ -490,7 +499,7 @@
             // fileNameBox
             // 
             this.fileNameBox.AccessibleName = "fileNameBox";
-            this.fileNameBox.Location = new System.Drawing.Point(375, 178);
+            this.fileNameBox.Location = new System.Drawing.Point(356, 34);
             this.fileNameBox.Name = "fileNameBox";
             this.fileNameBox.Size = new System.Drawing.Size(72, 20);
             this.fileNameBox.TabIndex = 35;
@@ -638,11 +647,113 @@
             this.textAziMin.Size = new System.Drawing.Size(100, 20);
             this.textAziMin.TabIndex = 52;
             // 
+            // panel1
+            // 
+            this.panel1.AccessibleName = "";
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.fileNameBox);
+            this.panel1.Controls.Add(this.IPBox);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.portBox);
+            this.panel1.Controls.Add(this.slotBox);
+            this.panel1.Controls.Add(this.wavelengthBox);
+            this.panel1.Controls.Add(this.commBox);
+            this.panel1.Controls.Add(this.bootBox);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.fftBox);
+            this.panel1.Controls.Add(this.buffersBox);
+            this.panel1.Controls.Add(this.periodsBox);
+            this.panel1.Controls.Add(this.speedBox);
+            this.panel1.Controls.Add(this.writeToFileBox);
+            this.panel1.Location = new System.Drawing.Point(19, 144);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(446, 191);
+            this.panel1.TabIndex = 55;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 128);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(101, 13);
+            this.label22.TabIndex = 56;
+            this.label22.Text = "Process Parameters";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(494, 183);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 13);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "Y divisions";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(494, 152);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(57, 13);
+            this.label24.TabIndex = 38;
+            this.label24.Text = "X divisions";
+            // 
+            // y_divBox
+            // 
+            this.y_divBox.AccessibleName = "periodsBox";
+            this.y_divBox.Location = new System.Drawing.Point(563, 179);
+            this.y_divBox.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.y_divBox.Name = "y_divBox";
+            this.y_divBox.Size = new System.Drawing.Size(72, 20);
+            this.y_divBox.TabIndex = 37;
+            this.y_divBox.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // x_divBox
+            // 
+            this.x_divBox.AccessibleName = "speedBox";
+            this.x_divBox.Location = new System.Drawing.Point(562, 148);
+            this.x_divBox.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.x_divBox.Name = "x_divBox";
+            this.x_divBox.Size = new System.Drawing.Size(72, 20);
+            this.x_divBox.TabIndex = 36;
+            this.x_divBox.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1361, 699);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.y_divBox);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.x_divBox);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.textEllMin);
             this.Controls.Add(this.textAziMin);
@@ -659,31 +770,7 @@
             this.Controls.Add(this.textEll);
             this.Controls.Add(this.textAzi);
             this.Controls.Add(this.textBoxCounter);
-            this.Controls.Add(this.fileNameBox);
-            this.Controls.Add(this.IPBox);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.portBox);
-            this.Controls.Add(this.slotBox);
-            this.Controls.Add(this.wavelengthBox);
-            this.Controls.Add(this.commBox);
-            this.Controls.Add(this.bootBox);
             this.Controls.Add(this.checkBoxRestart);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.fftBox);
-            this.Controls.Add(this.buffersBox);
-            this.Controls.Add(this.periodsBox);
-            this.Controls.Add(this.speedBox);
-            this.Controls.Add(this.writeToFileBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxArgs);
@@ -706,6 +793,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.wavelengthBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slotBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portBox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.y_divBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.x_divBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,6 +854,12 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textEllMin;
         private System.Windows.Forms.TextBox textAziMin;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.NumericUpDown y_divBox;
+        private System.Windows.Forms.NumericUpDown x_divBox;
     }
 }
 
